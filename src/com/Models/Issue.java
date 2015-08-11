@@ -1,4 +1,4 @@
-package Models;
+package com.Models;
 
 import java.util.Date;
 
@@ -12,25 +12,26 @@ import javax.persistence.TemporalType;
 public class Issue {
 	@Id
 	int id;
-	
+
 	@Temporal(TemporalType.DATE)
 	Date openedDate;
-	
+
 	@Temporal(TemporalType.DATE)
 	Date closedDate;
-	
+
 	String bugId;
-	
-	@Lob // choose Clob for charactey large object, or Blob for Byte Large Object
+
+	@Lob // choose Clob for charactey large object, or Blob for Byte Large
+			// Object
 	String description;
-	
+
 	String status;
-	
-	Issue(){
-		
+
+	Issue() {
+
 	}
-	
-	public Issue(int id, String bugId, String desc, String status, Date startDate){
+
+	public Issue(int id, String bugId, String desc, String status, Date startDate) {
 		this.id = id;
 		this.openedDate = startDate;
 		this.closedDate = startDate;
@@ -90,6 +91,5 @@ public class Issue {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 
 }

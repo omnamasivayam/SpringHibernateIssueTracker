@@ -5,6 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Commons"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
-	<classpathentry kind="lib" path="org.apache.commons.dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/spring-framework-4.2.0.RELEASE-dist/spring-framework-4.2.0.RELEASE/libs/spring-orm-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Derby"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
