@@ -21,9 +21,9 @@ public class Issue {
 
 	String bugId;
 
-//	@Lob // choose Clob for charactey large object, or Blob for Byte Large
+	@Lob // choose Clob for charactey large object, or Blob for Byte Large
 			// Object
-	String desc;
+	String descr;
 
 	String status;
 
@@ -31,12 +31,12 @@ public class Issue {
 
 	}
 
-	public Issue(int id, String bugId, String desc, String status, Date startDate) {
+	public Issue(int id, String bugId, String descr, String status, Date openedDate) {
 		this.id = id;
-		this.openedDate = startDate;
-		this.closedDate = startDate;
+		this.openedDate = openedDate;
+		this.closedDate = openedDate;
 		this.bugId = bugId;
-		this.desc = desc;
+		this.descr = descr;
 		this.status = status;
 	}
 
@@ -76,12 +76,12 @@ public class Issue {
 		this.bugId = id;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescr() {
+		return descr;
 	}
 
-	public void setDesc(String description) {
-		this.desc = description;
+	public void setDescr(String descr) {
+		this.descr = descr;
 	}
 
 	public String getStatus() {
