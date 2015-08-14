@@ -2,7 +2,10 @@ package com.Models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
@@ -11,7 +14,8 @@ import javax.persistence.TemporalType;
 @Entity
 public class Issue {
 	@Id
-	int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	long id;
 
 	@Temporal(TemporalType.DATE)
 	Date openedDate;
@@ -20,10 +24,21 @@ public class Issue {
 	Date closedDate;
 
 	String bugId;
-
+	@Column(columnDefinition="clob")
 	@Lob // choose Clob for charactey large object, or Blob for Byte Large
 			// Object
 	String descr;
+	@Column(columnDefinition="clob")
+	@Lob
+	String remarks;
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	String status;
 
@@ -31,13 +46,17 @@ public class Issue {
 
 	}
 
-	public Issue(int id, String bugId, String descr, String status, Date openedDate) {
-		this.id = id;
+	public Issue(String bugId, String descr, String status, String remarks, Date openedDate, Date closedDate) {
 		this.openedDate = openedDate;
-		this.closedDate = openedDate;
+		if(closedDate != null){
+			this.closedDate = openedDate;
+		}else{
+			this.closedDate = openedDate;
+		}
 		this.bugId = bugId;
 		this.descr = descr;
 		this.status = status;
+		this.remarks = remarks;
 	}
 
 	public Date getOpenedDate() {

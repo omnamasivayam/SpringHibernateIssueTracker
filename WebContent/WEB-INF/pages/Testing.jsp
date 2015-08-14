@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -22,13 +23,13 @@
     </script>
 </head>
 <body>
-	<!--div class="jumbotron">
+<!--div class="jumbotron">
     <h1>Issue Tracker</h1> 
     <p>Track Monthy Issues and check for Resolver/Inprogress Tickets accurately.</p> 
-     </div>
-	<div class="container">
+</div>
+<div class="container">
 
-	<div class="row">
+<div class="row">
 	
 	<  div class="col-sm-4" >
 		<ul class="nav nav-pills nav-stacked">

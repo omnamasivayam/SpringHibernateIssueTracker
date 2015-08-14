@@ -16,7 +16,7 @@ public class Demo {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Beans.xml");
 		System.out.println("App ctx over");
 		IssueDaoImpl issueDao = ctx.getBean("IssueDaoImpl", IssueDaoImpl.class);
-		Issue issue = new Issue(1, "AR1234", " this is the decription of the issue", "InProgress", new Date());
+		Issue issue = new Issue("AR1234", " this is the decription of the issue", "InProgress","OK OK OK ", new Date(), new Date());
 		System.out.println(" the beginning");
 		//System.out.println(issueDao.getIssueCount() + " the beginning");
 		issueDao.saveIssue(issue);

@@ -41,14 +41,16 @@ public class IssueController {
     }  
 	
 	@RequestMapping(value="/addIssue" , method=RequestMethod.POST)  
-    public String addIssue(@ModelAttribute("IssueForm") Issue issue, Map<String, Object> model) {  
+    //public ModelAndView addIssue(@ModelAttribute("IssueForm") Issue issue, Map<String, Object> model) {
+    public ModelAndView addIssue() {  
 		System.out.println("inside method of /addIssue ");
-		System.out.println("issue bugid is " + issue.getBugId());
-		issueDao.saveIssue(issue);
+	//	System.out.println("issue bugid is " + issue.getBugId());
+	//	issueDao.saveIssue(issue);
+		issueDao.saveIssue(new Issue());
 		System.out.println(" Saved sucessfully");
-	//	ModelAndView mv = new ModelAndView("IssueHome.jsp");
-	//	mv.addObject("issue", issue);
-      //  return mv;  
-		return "IssueHome.jsp";
+		ModelAndView mv = new ModelAndView("IssueHome.jsp");
+		mv.addObject("issues", issueDao.getIssueList());
+        return mv;  
+		//return "IssueHome.jsp";
     } 
 }

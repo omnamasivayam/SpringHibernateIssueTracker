@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +13,7 @@
 <body>
     <div align="center">
         <table border="0">
+        	<c:forEach items="${issues}" var="IssueForm">
             <tr>
                 <td colspan="2" align="center"><h2>Added Succeeded!</h2></td>
             </tr>
@@ -18,10 +21,6 @@
                 <td colspan="2" align="center">
                     <h3>Thank you for adding! Here's the review of your details:</h3>
                 </td>
-            </tr>
-            <tr>
-                <td>User Name:</td>
-                <td>${userForm.username}</td>
             </tr>
     		<tr>
                     <td>Id:</td>
@@ -44,7 +43,7 @@
                     <td>Start Date (mm/dd/yyyy):</td>
                     <td>>${IssueForm.openedDate}</td>
                 </tr>
- 
+ 			</c:forEach>
         </table>
     </div>
 </body>
