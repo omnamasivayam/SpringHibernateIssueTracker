@@ -25,7 +25,7 @@ public class IssueController {
 	IssueDaoImpl issueDao = ctx.getBean("IssueDaoImpl", IssueDaoImpl.class);
 	
 	@RequestMapping("/")  
-    public String helloWorld(Map<String, Object> model) { 
+    public ModelAndView helloWorld(Map<String, Object> model) { 
 		Issue issue = new Issue();
 		model.put("issue", issue);
 		System.out.println("inside method of / ");
@@ -34,9 +34,10 @@ public class IssueController {
         statusList.add("InProgress");
         statusList.add("AwaitingFeedback");
         statusList.add("Resolved");
+        issueDao.saveIssue(new Issue());
+        mv.addObject("issues", issueDao.getIssueList());
         model.put("statusList", statusList);
-        
-        return "Testing.jsp";  
+        return mv;  
 		//return "IssueHome";
     }  
 	
@@ -53,4 +54,45 @@ public class IssueController {
         return mv;  
 		//return "IssueHome.jsp";
     } 
+	
+	@RequestMapping(value="/addIssue" , method=RequestMethod.GET)  
+    //public ModelAndView addIssue(@ModelAttribute("IssueForm") Issue issue, Map<String, Object> model) {
+    public ModelAndView getAddIssue(Map<String, Object> model) {  
+		Issue issue = new Issue();
+	//	mv.put("issue", issue);
+		System.out.println("inside method of /addIssue ");
+		System.out.println("issues for month 7 is" + issueDao.getIssuesForMonth());
+	//	System.out.println("issue bugid is " + issue.getBugId());
+	//	issueDao.saveIssue(issue);
+	//	issueDao.saveIssue(new Issue());
+	//	System.out.println(" Saved sucessfully");
+		ModelAndView mv = new ModelAndView("addTicket.jsp");
+		model.put("issue", issue);
+		//mv.addObject("issues", issueDao.getIssueList());
+        return mv;  
+		//return "IssueHome.jsp";
+    } 
+	
+	@RequestMapping(value="/checkStatus" , method=RequestMethod.GET)  
+    //public ModelAndView addIssue(@ModelAttribute("IssueForm") Issue issue, Map<String, Object> model) {
+    public ModelAndView checkStatus(Map<String, Object> model) {  
+	//	Issue issue = new Issue();
+	//	mv.put("issue", issue);
+		System.out.println("inside method of /checkStatus ");
+	//	System.out.println("issue bugid is " + issue.getBugId());
+	//	issueDao.saveIssue(issue);
+	//	issueDao.saveIssue(new Issue());
+	//	System.out.println(" Saved sucessfully");
+		ModelAndView mv = new ModelAndView("checkStatus.jsp");
+		//model.put("issue", issue);
+		
+		mv.addObject("inprogress", 2 );
+		mv.addObject("resolved",1);
+		mv.addObject("awaitingfeedback",4);
+		mv.addObject("closed", 3);
+		
+        return mv;  
+		//return "IssueHome.jsp";
+    } 
+	
 }

@@ -62,6 +62,12 @@ public class IssueDaoImpl {
 	}
 	
 	//public Issue getIsssue(){
+	
+	public int getIssuesForMonth(){
+		String hql = "Select count(*) from Issue where openedDate >= 07/1/2015 AND openedDate < 07/31/2015";
+		Query query = sessionFactory.openSession().createQuery(hql);
+		return ((Long) query.uniqueResult()).intValue();
+	}
 		
 	//}
 
